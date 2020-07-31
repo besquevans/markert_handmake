@@ -11,6 +11,14 @@
 
   <body>
     <%= notice %>
+
+    <% if login? %>
+      <%= link_to "Logout", session_path(current_user), method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

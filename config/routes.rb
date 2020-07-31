@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "users#index"
+  root "products#index"
 
-  resources :users
+  resources :users, only: [:index, :new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :products
 end
