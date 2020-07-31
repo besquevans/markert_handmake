@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save 
-      redirect_to produts_path, notice: "Create success!"
+      redirect_to products_path, notice: "Create success!"
     else
       render :new 
     end

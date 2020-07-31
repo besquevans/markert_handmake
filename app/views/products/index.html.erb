@@ -1,0 +1,14 @@
+
+<h1>product index</h1>
+
+<%= link_to "new product", new_product_path %>
+
+<ul>
+  <% @products.each do |product| %>
+  <li>
+    <%= link_to product.name, product_path(product) %>
+    <%= link_to "edit", edit_product_path(product) %>
+    <%= link_to "delete", product_path(product), method: :delete, data:{ confirm: "Are you sure?" } %>
+  </li>
+  <% end %>
+</ul>
