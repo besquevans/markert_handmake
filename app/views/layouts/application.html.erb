@@ -10,15 +10,28 @@
   </head>
 
   <body>
-    <%= notice %>
+    <% if flash[:notice] %>
+      <div class="alert alert-primary alert-dismissible" role="alert">
+        <%= notice %>
 
-    <% if login? %>
-      <%= link_to "Logout", session_path(current_user), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     <% end %>
 
-    <%= yield %>
+    <div class="container">
+      <nav class="ml-auto">
+        <% if login? %>
+          <%= link_to "Logout", session_path(current_user), method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_path %>
+          <%= link_to "Login", new_session_path %>
+        <% end %>
+      </nav>
+      
+
+      <%= yield %>
+    </div>
   </body>
 </html>
