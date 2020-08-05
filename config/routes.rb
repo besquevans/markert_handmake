@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "products#index"
+  root "pages#home"
 
   resources :users, only: [:index, :new, :create]
   resources :sessions, only: [:new, :create, :destroy]
